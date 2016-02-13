@@ -29,15 +29,16 @@ class LoginViewController: UIViewController {
     @IBAction func signInButton(sender: UIButton) {
         sender.selected = true
         self.activityIndicator.startAnimating()
-        delay(1) {
+        delay(2) {
             if self.emailField.text == "john@gmail.com" && self.passwordField.text == "password" {
                 self.activityIndicator.stopAnimating()
+                self.performSegueWithIdentifier("SignInSegue", sender: self)
 
             }
             else {
                 self.activityIndicator.stopAnimating()
                 self.signInButton.selected = false
-                let alertController = UIAlertController(title: "", message: "Sign In was incorrect", preferredStyle: .Alert)
+                let alertController = UIAlertController(title: "Sign In", message: "Sign In was incorrect", preferredStyle: .Alert)
                 let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
                     // handle response here.
                 }
@@ -50,6 +51,19 @@ class LoginViewController: UIViewController {
             }
         }
         
+    }
+    
+    @IBAction func didTap(sender: AnyObject) {
+        view.endEditing(true)
+    }
+    
+    @IBAction func emailEditingChanged(sender: AnyObject) {
+        if emailField.text!.isEmpty || passwordField.text!.isEmpty {
+            signInButton.enabled = false
+        }
+        else {
+            signInButton.enabled = true
+        }
     }
     
     

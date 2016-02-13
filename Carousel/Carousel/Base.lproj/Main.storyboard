@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VKH-QC-TSf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="RbM-R1-kZI">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -114,23 +114,22 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="104"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sMr-64-7HD" userLabel="SignInButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sMr-64-7HD" userLabel="ForgotButton">
                                         <rect key="frame" x="91" y="71" width="132" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nJu-jA-Uja" userLabel="SignInButton">
-                                        <rect key="frame" x="19" y="12" width="282" height="49"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="signInButton:" destination="RbM-R1-kZI" eventType="touchUpInside" id="eA3-W1-M0F"/>
-                                            <segue destination="8t0-iO-aBm" kind="modal" id="qRx-73-KIv"/>
-                                        </connections>
-                                    </button>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="Hnj-4o-kL5">
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="Hnj-4o-kL5">
                                         <rect key="frame" x="268" y="27" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </activityIndicatorView>
+                                    <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="nJu-jA-Uja" userLabel="SignInButton">
+                                        <rect key="frame" x="19" y="12" width="282" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="signInButton:" destination="RbM-R1-kZI" eventType="touchUpInside" id="eA3-W1-M0F"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -146,6 +145,7 @@
                         <outlet property="passwordField" destination="8aM-Yi-Ho3" id="rT9-Sv-bbb"/>
                         <outlet property="signInButton" destination="nJu-jA-Uja" id="ap6-lf-NgB"/>
                         <outlet property="signInParentView" destination="oHl-QF-2qR" id="5yM-74-ja2"/>
+                        <segue destination="8t0-iO-aBm" kind="modal" identifier="SignInSegue" id="yQ2-V3-A2X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxK-ec-cda" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -206,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PUg-w2-sA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2258" y="416"/>
+            <point key="canvasLocation" x="2028" y="1170"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="egI-jg-Hii">

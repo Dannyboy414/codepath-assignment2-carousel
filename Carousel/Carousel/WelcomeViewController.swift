@@ -13,6 +13,7 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var welcomeScroll: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var carouselButton: UIButton!
+    
 
     // do stuff at the beginnning
     override func viewDidLoad() {
