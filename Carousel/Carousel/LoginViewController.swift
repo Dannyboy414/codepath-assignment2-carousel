@@ -25,11 +25,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var forgotButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     @IBAction func signInButton(sender: UIButton) {
-        sender.selected = true
         self.activityIndicator.startAnimating()
-        delay(2) {
+        delay(1) {
             if self.emailField.text == "john@gmail.com" && self.passwordField.text == "password" {
                 self.activityIndicator.stopAnimating()
                 self.performSegueWithIdentifier("SignInSegue", sender: self)
@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
             else {
                 self.activityIndicator.stopAnimating()
                 self.signInButton.selected = false
-                let alertController = UIAlertController(title: "Sign In", message: "Sign In was incorrect", preferredStyle: .Alert)
+                let alertController = UIAlertController(title: "Email and Password Required", message: "Please enter your Email address and Password", preferredStyle: .Alert)
                 let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
                     // handle response here.
                 }
