@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="RbM-R1-kZI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VKH-QC-TSf">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -156,13 +156,13 @@
                                         <rect key="frame" x="19" y="12" width="282" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="signInButton:" destination="RbM-R1-kZI" eventType="touchUpInside" id="eA3-W1-M0F"/>
+                                            <action selector="signInButton:" destination="RbM-R1-kZI" eventType="touchUpInside" id="b7I-6D-ljs"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="thV-Xi-w4X">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="thV-Xi-w4X" userLabel="BackButton">
                                 <rect key="frame" x="13" y="26" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
@@ -172,14 +172,14 @@
                     <navigationItem key="navigationItem" id="cFD-V2-JtY"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Hnj-4o-kL5" id="D1Y-on-e4i"/>
-                        <outlet property="backButton" destination="thV-Xi-w4X" id="x37-o1-aCn"/>
                         <outlet property="carouselText" destination="vu0-9V-Fhq" id="uMm-62-Wwh"/>
                         <outlet property="emailField" destination="ZGE-d7-qwi" id="jh1-0U-0E8"/>
                         <outlet property="fieldParentView" destination="gg6-7j-Lrc" id="yq1-2E-jHD"/>
                         <outlet property="passwordField" destination="8aM-Yi-Ho3" id="rT9-Sv-bbb"/>
                         <outlet property="signInButton" destination="nJu-jA-Uja" id="ap6-lf-NgB"/>
                         <outlet property="signInParentView" destination="oHl-QF-2qR" id="5yM-74-ja2"/>
-                        <segue destination="8t0-iO-aBm" kind="modal" identifier="SignInSegue" id="yQ2-V3-A2X"/>
+                        <segue destination="8t0-iO-aBm" kind="modal" identifier="signInButtonSegue" id="Fre-Xl-nSE"/>
+                        <segue destination="BYZ-38-t0r" kind="modal" id="Jf0-5D-Mn0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxK-ec-cda" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -281,6 +281,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2Ho-O5-Kc7">
                                 <rect key="frame" x="0.0" y="22" width="49" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="Xdr-Y4-ujH" kind="modal" id="qTL-90-zZK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -327,11 +330,11 @@
             <objects>
                 <viewController id="Xdr-Y4-ujH" customClass="SettingsViewController" customModule="Carousel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pb3-bu-dD4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="u5O-Hx-niW">
-                                <rect key="frame" x="0.0" y="63" width="320" height="800"/>
+                                <rect key="frame" x="0.0" y="63" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="settings" id="GhM-tp-tw5">
@@ -341,6 +344,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4RX-qk-i22">
                                         <rect key="frame" x="0.0" y="623" width="320" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="didLogOut:" destination="Xdr-Y4-ujH" eventType="touchUpInside" id="dhu-RT-CLW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </scrollView>
@@ -360,16 +366,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="800"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="closeButton" destination="taJ-DY-rEO" id="r1B-1u-G3z"/>
                         <outlet property="signOutButton" destination="4RX-qk-i22" id="ZaF-iB-18H"/>
                         <outlet property="uiScrollView" destination="u5O-Hx-niW" id="4XJ-o9-JQa"/>
+                        <segue destination="RbM-R1-kZI" kind="modal" identifier="LogoutSegue" id="CtQ-wJ-O0w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KI4-QT-75R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1778" y="2404"/>
+            <point key="canvasLocation" x="1778" y="2418"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="egI-jg-Hii">
@@ -432,4 +439,8 @@
         <image name="welcome3" width="320" height="568"/>
         <image name="welcome4" width="320" height="568"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Jf0-5D-Mn0"/>
+        <segue reference="CtQ-wJ-O0w"/>
+    </inferredMetricsTieBreakers>
 </document>

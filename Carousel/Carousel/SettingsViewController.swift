@@ -40,7 +40,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        uiScrollView.contentSize = CGSize(width: 320, height: 695)
+        uiScrollView.contentSize = CGSize(width: 320, height: 750)
         // Do any additional setup after loading the view.
     }
 

@@ -15,8 +15,6 @@ class LoginViewController: UIViewController {
     var signInParentOffset: CGFloat!
     var signInParentInitialY: CGFloat!
     
-   
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var signInParentView: UIView!
     @IBOutlet weak var fieldParentView: UIView!
@@ -27,12 +25,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var forgotButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
-    
-    @IBAction func backButtonAction(sender: AnyObject) {
+    @IBAction func backButton(sender: AnyObject) {
         navigationController?.popViewControllerAnimated(true)
     }
     
-    @IBAction func signInButtonAction(sender: AnyObject) {
+    @IBAction func signInButton(sender: AnyObject) {
         
         func showAlertWithTitle(title: String, andMessage message: String){
             let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
@@ -48,7 +45,7 @@ class LoginViewController: UIViewController {
             delay(2) {
                 if self.emailField.text == "dan@gmail.com" && self.passwordField.text == "password" {
                     self.activityIndicator.stopAnimating()
-                    self.performSegueWithIdentifier("signInSegue", sender: self)
+                    self.performSegueWithIdentifier("signInButtonSegue", sender: self)
                 } else {
                     showAlertWithTitle("Invalid Email or Password", andMessage: "Please Check your Email and Password to make sure they are Correct")
                 }
