@@ -27,30 +27,33 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var forgotButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
-    @IBAction func signInButton(sender: UIButton) {
-        self.activityIndicator.startAnimating()
-        delay(1) {
-            if self.emailField.text == "john@gmail.com" && self.passwordField.text == "password" {
-                self.activityIndicator.stopAnimating()
-                self.performSegueWithIdentifier("SignInSegue", sender: self)
-
-            }
-            else {
-                self.activityIndicator.stopAnimating()
-                self.signInButton.selected = false
-                let alertController = UIAlertController(title: "Email and Password Required", message: "Please enter your Email address and Password", preferredStyle: .Alert)
-                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                    // handle response here.
-                }
-                // add the OK action to the alert controller
-                alertController.addAction(OKAction)
-                self.presentViewController(alertController, animated: true) {
-                    // optional code for what happens after the alert controller has finished presenting
-                }
-                
-            }
+    
+    @IBAction func backButtonAction(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func signInButtonAction(sender: AnyObject) {
+        
+        func showAlertWithTitle(title: String, andMessage message: String){
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+            let cancelAction = UIAlertAction(title: "OK", style: .Cancel){ (action) in }
+            alert.addAction(cancelAction)
+            presentViewController(alert, animated: true){}
         }
         
+        if emailField.text!.isEmpty || passwordField.text!.isEmpty {
+            showAlertWithTitle("Email and Password Required", andMessage: "Please enter your Email Address and Password")
+        } else {
+            activityIndicator.startAnimating()
+            delay(2) {
+                if self.emailField.text == "dan@gmail.com" && self.passwordField.text == "password" {
+                    self.activityIndicator.stopAnimating()
+                    self.performSegueWithIdentifier("signInSegue", sender: self)
+                } else {
+                    showAlertWithTitle("Invalid Email or Password", andMessage: "Please Check your Email and Password to make sure they are Correct")
+                }
+            }
+        }
     }
     
     @IBAction func didTap(sender: AnyObject) {

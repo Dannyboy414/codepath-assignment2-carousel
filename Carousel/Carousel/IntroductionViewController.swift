@@ -31,9 +31,9 @@ class IntroductionViewController: UIViewController, UIScrollViewDelegate {
     }
     
     // Boundaries
-    func scrollViewDidScroll(uiScrollView: UIScrollView) {
+    func scrollViewDidScroll(scrollView: UIScrollView) {
         let offset = uiScrollView.contentOffset.y
-        let bottom: CGFloat = 568
+        let bottom: CGFloat = scrollView.contentSize.height - scrollView.frame.height
         let percent = offset / bottom
 
         if percent >= 1 {
@@ -43,39 +43,68 @@ class IntroductionViewController: UIViewController, UIScrollViewDelegate {
             image4Lake.transform = CGAffineTransformIdentity
             image5House.transform = CGAffineTransformIdentity
             image6Dog.transform = CGAffineTransformIdentity
-        return
+            return
+        }
+    
+        // transform = starting position * (1 - percent)
+        var transform1 = CGAffineTransformMakeScale(1, 1)
+        let radiansOfRotation1 = degreesToRadians(-7.0 * (1 - percent))
+        transform1 = CGAffineTransformRotate(transform1, radiansOfRotation1)
+        let xTransform1 = -35 * (1 - percent)
+        let yTransform1 = -300 * (1 - percent)
+        transform1 = CGAffineTransformTranslate(transform1, xTransform1, yTransform1)
+        
+        let scale2 = 0.9 * (1 - percent) + 1.0
+        var transform2 = CGAffineTransformMakeScale(scale2, scale2)
+        let radiansOfRotation2 = degreesToRadians(-8.0 * (1 - percent))
+        transform2 = CGAffineTransformRotate(transform2, radiansOfRotation2)
+        let xTransform2 = 40 * (1 - percent)
+        let yTransform2 = -130 * (1 - percent)
+        transform2 = CGAffineTransformTranslate(transform2, xTransform2, yTransform2)
+        
+        let scale3 = 0.7 * (1 - percent) + 1.0
+        var transform3 = CGAffineTransformMakeScale(scale3, scale3)
+        let radiansOfRotation3 = degreesToRadians(8.0 * (1 - percent))
+        transform3 = CGAffineTransformRotate(transform3, radiansOfRotation3)
+        let xTransform3 = -30 * (1 - percent)
+        let yTransform3 = -250 * (1 - percent)
+        transform3 = CGAffineTransformTranslate(transform3, xTransform3, yTransform3)
+        
+        let scale4 = 0.9 * (1 - percent) + 1.0
+        var transform4 = CGAffineTransformMakeScale(scale4, scale4)
+        let radiansOfRotation4 = degreesToRadians(8.0 * (1 - percent))
+        transform4 = CGAffineTransformRotate(transform4, radiansOfRotation4)
+        let xTransform4 = 20 * (1 - percent)
+        let yTransform4 = -210 * (1 - percent)
+        transform4 = CGAffineTransformTranslate(transform4, xTransform4, yTransform4)
+        
+        let scale5 = 0.9 * (1 - percent) + 1.0
+        var transform5 = CGAffineTransformMakeScale(scale5, scale5)
+        let radiansOfRotation5 = degreesToRadians(8.0 * (1 - percent))
+        transform5 = CGAffineTransformRotate(transform5, radiansOfRotation5)
+        let xTransform5 = -100 * (1 - percent)
+        let yTransform5 = -250 * (1 - percent)
+        transform5 = CGAffineTransformTranslate(transform5, xTransform5, yTransform5)
+        
+        let scale6 = 0.6 * (1 - percent) + 1.0
+        var transform6 = CGAffineTransformMakeScale(scale6, scale6)
+        let radiansOfRotation6 = degreesToRadians(-8.0 * (1 - percent))
+        transform6 = CGAffineTransformRotate(transform6, radiansOfRotation6)
+        let xTransform6 = -16 * (1 - percent)
+        let yTransform6 = -310 * (1 - percent)
+        transform6 = CGAffineTransformTranslate(transform6, xTransform6, yTransform6)
+
+
+        image1Fingers.transform = transform1
+        image2Deer.transform = transform2
+        image3Fish.transform = transform3
+        image4Lake.transform = transform4
+        image5House.transform = transform5
+        image6Dog.transform = transform6
     }
     
-    var transform1 = CGAffineTransformMakeScale(1 - percent, 1 - percent)
-    transform1 = CGAffineTransformRotate(transform1, CGFloat((-7 - (20 * Double(percent))) * M_PI / 180))
-    transform1 = CGAffineTransformTranslate(transform1, -68 + (90 * percent), -290 + (200 * percent))
-    
-    var transform2 = CGAffineTransformMakeScale(1.9 - percent, 1.9 - percent)
-    transform2 = CGAffineTransformRotate(transform2, CGFloat((-10 - (-20 * Double(percent))) * M_PI / 180))
-    transform2 = CGAffineTransformTranslate(transform2, 40 + (-70 * percent), -120 + (150 * percent))
-    
-    var transform3 = CGAffineTransformMakeScale(1.9 - percent, 1.9 - percent)
-    transform3 = CGAffineTransformRotate(transform3, CGFloat((13 - (15 * Double(percent))) * M_PI / 180))
-    transform3 = CGAffineTransformTranslate(transform3, -50 + (25 * percent), -220 + (150 * percent))
-    
-    var transform4 = CGAffineTransformMakeScale(1.9 - percent / 2, 1.9 - percent / 2)
-    transform4 = CGAffineTransformRotate(transform4, CGFloat((+15 - (-15 * Double(percent))) * M_PI / 180))
-    transform4 = CGAffineTransformTranslate(transform4, -18 + (-45 * percent), -205 + (240 * percent))
-    
-    var transform5 = CGAffineTransformMakeScale(1.9 - percent / 2, 1.9 - percent / 2)
-    transform5 = CGAffineTransformRotate(transform5, CGFloat((12 - (15 * Double(percent))) * M_PI / 180))
-    transform5 = CGAffineTransformTranslate(transform5, -135 + (95 * percent), -256 + (240 * percent))
-    
-    var transform6 = CGAffineTransformMakeScale(1.8 - percent / 2, 1.8 - percent / 2)
-    transform6 = CGAffineTransformRotate(transform6, CGFloat((-13 - (-15 * Double(percent))) * M_PI / 180))
-    transform6 = CGAffineTransformTranslate(transform6, 0 + (-35 * percent), -285 + (250 * percent))
-
-    image1Fingers.transform = transform1
-    image2Deer.transform = transform2
-    image3Fish.transform = transform3
-    image4Lake.transform = transform4
-    image5House.transform = transform5
-    image6Dog.transform = transform6
+    func degreesToRadians(degrees: CGFloat) -> CGFloat {
+        return degrees * CGFloat(M_PI / 180.0)
     }
 
 
