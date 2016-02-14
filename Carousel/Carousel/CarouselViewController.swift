@@ -9,12 +9,14 @@
 import UIKit
 
 class CarouselViewController: UIViewController {
-
+    
+    @IBOutlet weak var uiScrollView: UIScrollView!
     @IBOutlet weak var settingsButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        uiScrollView.contentSize = CGSize(width: 320, height: 1564)
     }
 
     override func didReceiveMemoryWarning() {

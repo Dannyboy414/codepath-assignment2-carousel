@@ -11,7 +11,7 @@ import UIKit
 class ConversationViewController: UIViewController {
 
     @IBOutlet weak var backButton: UIButton!
-    @IBAction func backButtonAction(sender: AnyObject) {
+    @IBAction func backButton(sender: AnyObject) {
         navigationController?.popViewControllerAnimated(true)
     }
     

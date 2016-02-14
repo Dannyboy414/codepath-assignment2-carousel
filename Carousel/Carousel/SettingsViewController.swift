@@ -13,10 +13,11 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var uiScrollView: UIScrollView!
-    @IBAction func closeButtonAction(sender: AnyObject) {
+    @IBAction func closeButton(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: {})
     }
-
+    
+    
     @IBAction func didLogOut(sender: AnyObject) {
         let alertController = UIAlertController(title: "", message: "Are you sure you want to Log Out?", preferredStyle: .ActionSheet)
         let CancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in

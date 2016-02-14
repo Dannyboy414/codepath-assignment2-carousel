@@ -39,7 +39,7 @@ class LoginViewController: UIViewController {
         }
         
         if emailField.text!.isEmpty || passwordField.text!.isEmpty {
-            showAlertWithTitle("Email and Password Required", andMessage: "Please enter your Email Address and Password")
+            showAlertWithTitle("Email and Password are required", andMessage: "Please enter your Email Address and Password")
         } else {
             activityIndicator.startAnimating()
             delay(2) {
@@ -47,7 +47,7 @@ class LoginViewController: UIViewController {
                     self.activityIndicator.stopAnimating()
                     self.performSegueWithIdentifier("signInButtonSegue", sender: self)
                 } else {
-                    showAlertWithTitle("Invalid Email or Password", andMessage: "Please Check your Email and Password to make sure they are Correct")
+                    showAlertWithTitle("Incorrect Email or Password", andMessage: "Please check your Email and Password to make sure they're Correct")
                 }
             }
         }
